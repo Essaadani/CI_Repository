@@ -16,13 +16,15 @@ jobs:
       - checkout
       - run:
           name: "install dependencies"
-          command: python3 -m venv venv     
-                    .venv/bin/activate
-                   pip install -r requirements.txt
+          command: |
+            python3 -m venv venv
+            .venv/bin/activate
+            pip install -r requirements.txt
       - run:
           name: "run tests"
-          command:  .venv/bin/activate
-                   pytest -v --cov=calculator   
+          command:  |
+            .venv/bin/activate
+            pytest -v --cov=calculator   
 
 # Invoke jobs via workflows
 # See: https://circleci.com/docs/2.0/configuration-reference/#workflows
